@@ -1,5 +1,6 @@
 package com.example.Spring_App_Development.Controller;
 
+import com.example.Spring_App_Development.ServiceLayer.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -35,4 +36,11 @@ public class GreetingController {
                 "FourthMapping", b4()
         );
     }
+
+
+    //uc2 getting simple methods using service layer
+      @GetMapping("/service")
+    public String greetingMethod(){
+        return GreetingService.getGreeting();
+      }
 }

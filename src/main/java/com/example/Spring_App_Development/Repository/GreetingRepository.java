@@ -8,7 +8,7 @@ public class GreetingRepository {
     public void save(String message) {
         this.greetingMessage = message;
     }
-
+   //  it is used to return the greeting
     public String find() {
         return greetingMessage;
     }

@@ -2,6 +2,7 @@ package com.example.Spring_App_Development.Controller;
 
 import com.example.Spring_App_Development.ServiceLayer.FullNameService;
 import com.example.Spring_App_Development.ServiceLayer.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -58,12 +59,9 @@ public class GreetingController {
         return response;
 
     }
-        //  uc4 save greeting in reposit
-        private final GreetingService greetingService;
-
-    public GreetingController(GreetingService greetingService) {
-        this.greetingService = greetingService;
-    }
+        //  uc4 save greeting in repository
+        @Autowired
+        private GreetingService greetingService;
 
     @PostMapping("/savegreeting")
     public String saveGreeting(@RequestBody String message) {

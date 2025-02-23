@@ -86,5 +86,11 @@ public class GreetingController {
         return greetingService.getGreetingById(id);
     }
 
+    // uc6 showing all the messages
+    @GetMapping("/all")
+    public Map<Long, String> getAllGreetings() {
+        return greetingService.getAllGreetings();
+    }
+
 
 }

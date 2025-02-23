@@ -25,4 +25,10 @@ public class GreetingRepository {
     public String findById(Long id) {
         return greetings.getOrDefault(id, "Greeting not found!");
     }
+
+    // uc6
+    public Map<Long, String> getAllGreetings() {
+        return greetings; // Assuming `greetings` is your Map<Long, String>
+    }
+
 }

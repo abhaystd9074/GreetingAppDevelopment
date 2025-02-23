@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class GreetingService {
@@ -30,5 +31,9 @@ public class GreetingService {
 
     public String getGreetingById(Long id) {
         return greetingRepository.findById(id);
+    }
+    //  uc6
+    public Map<Long, String> getAllGreetings() {
+        return greetingRepository.getAllGreetings();
     }
 }

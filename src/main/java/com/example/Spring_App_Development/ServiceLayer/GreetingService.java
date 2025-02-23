@@ -48,4 +48,15 @@ public class GreetingService {
             return "Greeting with ID " + id + " not found!";
         }
     }
+    //uc8
+    public String deleteGreetingById(Long id) {
+
+        Map<Long,String>greetings=greetingRepository.getAllGreetings();
+        if (greetings.containsKey(id)) {
+           greetings.remove(id);
+            return "Greeting with ID " + id + " has been deleted successfully!";
+        } else {
+            return "Greeting with ID " + id + " not found!";
+        }
+    }
 }

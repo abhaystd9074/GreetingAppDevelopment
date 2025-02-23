@@ -36,4 +36,16 @@ public class GreetingService {
     public Map<Long, String> getAllGreetings() {
         return greetingRepository.getAllGreetings();
     }
+
+    //uc7
+    public String updateGreeting(Long id, String newMessage) {
+        Map<Long,String>greetings=greetingRepository.getAllGreetings();
+        if (greetings.containsKey(id)) {
+            String oldMessage = greetings.get(id);
+            greetings.put(id, newMessage);
+            return "Original Message: " + oldMessage + " | Updated Message: " + newMessage;
+        } else {
+            return "Greeting with ID " + id + " not found!";
+        }
+    }
 }

@@ -92,5 +92,14 @@ public class GreetingController {
         return greetingService.getAllGreetings();
     }
 
+    // uc7 here i am updating  the greeting message stored by id
+    @PutMapping("/id/{id}")
+    public String updateGreeting(@PathVariable Long id, @RequestBody String newMessage) {
+        String response = greetingService.updateGreeting(id, newMessage);
+        return response;
+    }
+
+
+
 
 }

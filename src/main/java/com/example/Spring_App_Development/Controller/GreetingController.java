@@ -50,14 +50,30 @@ public class GreetingController {
     @GetMapping("/greetingname")
     public Map<String ,String> greetingMethod(
             @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName){
-        FullNameService obj=new FullNameService();
-        Map<String ,String > response=new HashMap<>();
+            @RequestParam(required = false) String lastName) {
+        FullNameService obj = new FullNameService();
+        Map<String, String> response = new HashMap<>();
 
-        response.put("response is ", obj.greetingWithName(firstName,lastName));
-        return response ;
+        response.put("response is ", obj.greetingWithName(firstName, lastName));
+        return response;
 
+    }
+        //  uc4 save greeting in reposit
+        private final GreetingService greetingService;
 
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    @PostMapping("/savegreeting")
+    public String saveGreeting(@RequestBody String message) {
+        greetingService.saveGreeting(message);
+        return "Greeting saved successfully!";
+    }
+
+    @GetMapping("/getgreeting")
+    public String getGreeting() {
+        return greetingService.getGreeting2();
     }
 
 
